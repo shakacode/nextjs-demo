@@ -7,8 +7,8 @@ import Navbar from './../components/Navbar'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ReactRails NextJS Comparison App',
-  description: 'A ReactRails NextJS Comparison App developed by Shakacode',
+  title: "Welcome to Shakacode's functionality demonstration app for NextJS!",
+  description: 'A NextJS functionality demonstration app developed by Shakacode',
 }
 
 export default function RootLayout({
