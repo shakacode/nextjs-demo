@@ -1,4 +1,4 @@
-async function getData(url: string, reevalutationPeriodInSeconds: integer) {
+async function getData(url: string, reevalutationPeriodInSeconds: number) {
   const options = {}
   if(reevalutationPeriodInSeconds) {
     options["next"] = { revalidate: reevalutationPeriodInSeconds }
@@ -18,9 +18,9 @@ export default async function Page() {
  
   return (
   <main>
+    <p>This page is a server component, which demonstrates the use of NextJS's enhanced fetch for API calls in combination with async/await rather than hooks.</p>
     <section>{data}</section>
     <section>{source}</section>
-    Tada!!!
   </main>
   )
 }
