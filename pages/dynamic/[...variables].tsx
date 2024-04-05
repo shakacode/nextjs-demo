@@ -1,21 +1,20 @@
 import type { ReactElement } from 'react'
+import type { InferGetStaticPropsType, GetStaticProps } from 'next'
 import { useRouter } from 'next/router'
-import useSWR from 'swr'
 
 import Layout from '../../components/layout'
 import type { NextPageWithLayout } from '../_app'
 
-const fetcher = (url) => fetch(url).then((res) => res.json())
- 
-const Page: NextPageWithLayout = () => {
-  const { data, error } = useSWR('/api/pages/dynamic/[...variables]', fetcher)
-  let result = "Loading..."
-  if (error) {
-    result = "Failed to load"
-  }
-  if (data) {
-    result = JSON.stringify(data)
-  }
+export const getStaticProps = (async (context) => {
+  const source = readFileSync(`${process.cwd()}/pages/dynamic/[...variables].tsx`).toString()
+  return { source }
+}) satisfies GetStaticProps<{
+  source: string
+}>
+
+const Page: NextPageWithLayout = ({
+  source,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter()
   return (
     <>
