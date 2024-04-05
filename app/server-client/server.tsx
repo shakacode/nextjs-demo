@@ -11,16 +11,16 @@ async function getData(url: string, reevalutationPeriodInSeconds: number) {
  
   return res.json()
 }
- 
-export default async function Page() {
+
+export default async function Page() { // Got to add the getData async function \O/
   const data = JSON.stringify(await getData('https://reactrails.com/comments.json', 5))
-  const source = JSON.stringify(await getData(`${process.env.NEXT_PUBLIC_DOMAIN}/api/app/comments/page`))
  
   return (
   <main>
     <p>This page is a server component, which demonstrates the use of NextJS's enhanced fetch for API calls in combination with async/await rather than hooks.</p>
+
+    The result of the server-side async API call to https://reactrails.com/comments.json:
     <section>{data}</section>
-    <section>{source}</section>
   </main>
   )
 }
