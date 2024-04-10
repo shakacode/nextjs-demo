@@ -14,8 +14,8 @@ export default function navigationBar() {
           </Link>
         </li>
         <li>
-          <Link href="/comments" className={`link ${pathname === '/comments' ? 'active' : ''}`}>
-            Comments Page
+          <Link href="/server-client-composition" className={`link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
+            Demonstration of Server/Client component composition
           </Link>
         </li>
       </ul>
