@@ -9,14 +9,34 @@ export default function navigationBar() {
     <section>
       <ul>
         <li>
-          <Link href="/" className={`link ${pathname === '/' ? 'active' : ''}`}>
-            Index Page
-          </Link>
+          <ul>
+            Page Routes:
+            <li>
+              <Link href="/" className={`link ${pathname === '/' ? 'active' : ''}`}>
+                Index Page
+              </Link>
+            </li>
+            <li>
+              <Link href="/dynamic/routing/with/any/path/you/want/as/long/as/it/starts/with/dynamic" className={`link ${pathname?.startsWith('/dynamic/') ? 'active' : ''}`}>
+                Dynamic Routing Demo
+              </Link>
+            </li>
+          </ul>
         </li>
         <li>
-          <Link href="/server-client-composition" className={`link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
-            Demonstration of Server/Client component composition
-          </Link>
+          <ul>
+            App Routes:
+            <li>
+              <Link href="/server-client-composition" className={`link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
+                Server/Client component composition Demo
+              </Link>
+            </li>
+            <li>
+              <Link href="/route-handler-test" className={`link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
+                Route Handling & API call React Hook Demo
+              </Link>
+            </li>
+          </ul>
         </li>
       </ul>
     </section>
