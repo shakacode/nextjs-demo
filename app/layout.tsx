@@ -24,7 +24,9 @@ export default function RootLayout({
           <Navbar/>
         </Header>
 
-        {children}
+        <main className="mx-auto px-4 w-[80%] mt-10">
+          {children}  
+        </main>
       </body>
     </html>
   )

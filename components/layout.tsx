@@ -10,7 +10,7 @@ export default function Layout({ children }: {children: ReactNode}) {
         <Navbar/>
       </Header>
 
-      <main>{children}</main>
+      <main className="mx-auto px-4 w-[80%] mt-10">{children}</main>
     </>
   )
 }
