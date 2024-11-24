@@ -13,14 +13,21 @@ export default function navigationBar() {
   const pathname = usePathname()
 
   const togglePageRoutesNav = () => {
+    setIsAppRoutesNavOpen(false)
     setIsPageRoutesNavOpen(!isPageRoutesNavOpen)
   }
 
   const toggleAppRoutesNav = () => {
+    setIsPageRoutesNavOpen(false)
     setIsAppRoutesNavOpen(!isAppRoutesNavOpen)
   }
+
+  const closeNavs = () => {
+    setIsPageRoutesNavOpen(false)
+    setIsAppRoutesNavOpen(false)
+  }
   return (
-    <section>
+    <section className="flex items-center">
       <ul className="flex gap-4 relative">
         <li>
           <ul>
@@ -31,12 +38,12 @@ export default function navigationBar() {
 
             <div className={`bg-white shadow-lg shadow-black-500/40 p-4 rounded absolute z-10 w-[max-content] ${isPageRoutesNavOpen ? "" : "hidden"}`}>
               <li>
-                <Link href="/" className={`hover:text-red-600 link ${pathname === '/' ? 'active' : ''}`}>
+                <Link href="/" className={`hover:text-red-600 link ${pathname === '/' ? 'active' : ''}`} onClick={closeNavs}>
                   Index Page
                 </Link>
               </li>
               <li>
-                <Link href="/dynamic/routing/with/any/path/you/want/as/long/as/it/starts/with/dynamic" className={`hover:text-red-600 link ${pathname?.startsWith('/dynamic/') ? 'active' : ''}`}>
+                <Link href="/dynamic/routing/with/any/path/you/want/as/long/as/it/starts/with/dynamic" className={`hover:text-red-600 link ${pathname?.startsWith('/dynamic/') ? 'active' : ''}`} onClick={closeNavs}>
                   Dynamic Routing Demo
                 </Link>
               </li>
@@ -52,12 +59,12 @@ export default function navigationBar() {
 
             <div className={`bg-white shadow-lg shadow-black-500/40 p-4 rounded absolute z-10 w-[max-content] ${isAppRoutesNavOpen ? "" : "hidden"}`}>
               <li>
-                <Link href="/server-client-composition" className={`hover:text-red-600 link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
+                <Link href="/server-client-composition" className={`hover:text-red-600 link ${pathname === '/server-client-composition' ? 'active' : ''}`} onClick={closeNavs}>
                   Server/Client component composition Demo
                 </Link>
               </li>
               <li>
-                <Link href="/route-handler-test" className={`hover:text-red-600 link ${pathname === '/server-client-composition' ? 'active' : ''}`}>
+                <Link href="/route-handler-test" className={`hover:text-red-600 link ${pathname === '/server-client-composition' ? 'active' : ''}`} onClick={closeNavs}>
                   Route Handling & API call React Hook Demo
                 </Link>
               </li>
